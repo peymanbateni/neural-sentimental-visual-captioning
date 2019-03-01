@@ -1,6 +1,5 @@
 
 from collections import Counter, defaultdict
-from gensim.models import Word2Vec
 from IPython import display
 from nltk import word_tokenize
 from nltk.translate.bleu_score import sentence_bleu
@@ -17,4 +16,27 @@ import random
 import torch
 import torch.nn.functional as F
 
-# TODO: Add code for training the model
+USE_CUDA = False # switch to true when training on GPU(s)
+
+def train_pass(image_input, target_output, model, optimizer, criterion):
+    """
+    Given batch of images, completes one pass of training on the model,
+    using the given optimizer and criterion.
+    """
+
+    if USE_CUDA:
+        image_input = image_input.cuda()
+        target_output = target_output.cuda()
+        model = model.cuda()
+        optimizer = optimizer.cuda()
+        criterion = criterion.cuda()
+
+    optimizer.zero_grad()
+    model_output = model(image_input)
+    loss = criterion(model_output, target_output)
+    loss.backward()
+    optimizer.step()
+
+    return loss.data.cpu().numpy
+
+# TODO: Add code for iterating through data and training the model

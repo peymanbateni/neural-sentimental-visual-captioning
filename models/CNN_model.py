@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from torch import optim
+import torchvision
 
 class CNNModule(nn.Module):
     def __init__(self):
