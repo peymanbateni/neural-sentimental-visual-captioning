@@ -16,6 +16,8 @@ import random
 import torch
 import torch.nn.functional as F
 
+from models.ANP_classifier import *
+
 USE_CUDA = False # switch to true when training on GPU(s)
 
 def train_pass(image_input, target_output, model, optimizer, criterion):
