@@ -8,7 +8,7 @@ validation_ratio = 0.15
 test_ratio = 1 - (train_ratio + validation_ratio)
 
 for subdir in os.listdir(image_dataset_folder):
-	if (not subdir.endswith("_train")) and (not subdir.endswith("_validation")) and (not subdir.endswith("_test")): 
+        if (not subdir.endswith("_train")) and (not subdir.endswith("_validation")) and (not subdir.endswith("_test")):
 
                 subdir_path = image_dataset_folder + subdir + "/"
                 print("Partioning " + subdir_path)

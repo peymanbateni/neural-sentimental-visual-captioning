@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> df1b56ba04016d335d3a6f3fe7e536d9c29e55a9
 from collections import Counter, defaultdict
 from IPython import display
 from nltk import word_tokenize
@@ -44,21 +40,12 @@ train_anp_tags = []
 train_image_names = []
 train_image_to_anp_tag = {}
 for subdir in os.listdir(vso_images_folder):
-<<<<<<< HEAD
-	if subdir.endswith("_train"):
-		train_anp_tags.append(subdir.replace("_train", "").replace("_", " "))
-		for filename in os.listdir(vso_images_folder + subdir):
-			if filename.endswith(".jpg"):
-				train_image_names.append(vso_images_folder + subdir + "/"  + filename)
-				train_image_to_anp_tag[vso_images_folder + subdir + "/"  + filename] = subdir.replace("_train", "").replace("_", " ")
-=======
         if subdir.endswith("_train"):
                 train_anp_tags.append(subdir.replace("_train", "").replace("_", " "))
                 for filename in os.listdir(vso_images_folder + subdir):
                         if filename.endswith(".jpg"):
                                 train_image_names.append(vso_images_folder + subdir + "/"  + filename)
                                 train_image_to_anp_tag[vso_images_folder + subdir + "/"  + filename] = subdir.replace("_train", "").replace("_", " ")
->>>>>>> df1b56ba04016d335d3a6f3fe7e536d9c29e55a9
 
 validation_anp_tags = []
 validation_image_names = []
@@ -84,8 +71,4 @@ for subdir in os.listdir(vso_images_folder):
 
 print(train_image_to_anp_tag)
 print(validation_image_to_anp_tag)
-<<<<<<< HEAD
 print(test_image_to_anp_tag)
-=======
-print(test_image_to_anp_tag)
->>>>>>> df1b56ba04016d335d3a6f3fe7e536d9c29e55a9
